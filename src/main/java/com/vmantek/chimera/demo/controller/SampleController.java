@@ -36,7 +36,6 @@ public class SampleController
         {
             if(rsp.hasField(39)) stats.setResponseCode(rsp.getString(39));
             stats.setCustomerCount((Long) ctx.get("customer-count"));
-            stats.setPartnerCount((Long) ctx.get("partner-count"));
         }
         return ResponseEntity.ok(stats);
     }
