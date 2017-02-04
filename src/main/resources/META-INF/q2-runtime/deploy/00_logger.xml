@@ -1,0 +1,3 @@
+<logger name="Q2">
+  <log-listener class="com.vmantek.chimera.logging.ChimeraLogListener"/>
+</logger>

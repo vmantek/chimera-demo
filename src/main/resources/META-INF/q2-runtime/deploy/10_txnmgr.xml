@@ -1,0 +1,17 @@
+<txnmgr name="txnmgr" class="org.jpos.transaction.TransactionManager" logger="Q2">
+
+  <property name="queue" value="DEFAULT_TXN"/>
+  <property name="max-sessions" value="${tm.max-sessions}"/>
+  <property name="debug" value="${tm.debug-enabled}"/>
+
+  <participant class="com.vmantek.chimera.tm.Open" logger="Q2" realm="open"/>
+  <participant class="com.vmantek.chimera.demo.tm.SampleParticipant" logger="Q2" realm="sample"/>
+  <participant class="com.vmantek.chimera.demo.tm.GatherFacts" logger="Q2" realm="gather-facts"/>
+  <participant class="com.vmantek.chimera.demo.tm.SendResponse" logger="Q2" realm="send"/>
+  <participant class="com.vmantek.chimera.tm.Close" logger="Q2" realm="close"/>
+
+  [#if '@@tm.debug-participant-enabled@@' == 'true']
+    <participant class="org.jpos.transaction.Debug" logger="Q2" realm="debug"/>
+  [/#if]
+
+</txnmgr>

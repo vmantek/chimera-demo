@@ -1,0 +1,55 @@
+plugins {
+    id "org.springframework.boot" version "1.4.4.RELEASE"
+}
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'java'
+
+group 'chimera-demo'
+version '1.0.0-SNAPSHOT'
+
+bootRepackage {
+    executable = true
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+    maven { url 'http://jpos.org/maven' }
+    maven { url 'http://download.oracle.com/maven' }
+    mavenLocal()
+}
+
+// We need this here because lately jPOS insists on including
+// this library in the classpath. This tells gradle to exclude it.
+configurations.all {
+    exclude module:'slf4j-nop'
+}
+
+// We override Spring Data JPA's version
+ext['hibernate.version']='5.2.7.Final'
+
+dependencies {
+
+    compile 'com.vmantek.chimera:chimera:1.0.2'
+
+    compile 'org.jpos.ee:jposee-dbsupport:2.2.2'
+    compile 'org.jpos.ee:jposee-txn:2.2.2'
+
+    compile 'org.springframework.boot:spring-boot-starter'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-data-rest'
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+
+    compile 'com.fasterxml.jackson.datatype:jackson-datatype-hibernate5'
+
+    compile 'org.jolokia:jolokia-core'
+    compile 'org.hsqldb:hsqldb'
+    compile 'org.flywaydb:flyway-core:4.0.3'
+    compile 'org.projectlombok:lombok:1.16.6'
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
