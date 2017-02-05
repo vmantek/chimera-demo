@@ -38,9 +38,8 @@ dependencies {
     compile 'org.jpos.ee:jposee-dbsupport:2.2.2'
     compile 'org.jpos.ee:jposee-txn:2.2.2'
 
-    compile 'org.springframework.boot:spring-boot-starter'
-    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
     compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
     compile 'org.springframework.boot:spring-boot-starter-data-rest'
     compile 'org.springframework.boot:spring-boot-starter-actuator'
 
@@ -51,5 +50,6 @@ dependencies {
     compile 'org.flywaydb:flyway-core:4.0.3'
     compile 'org.projectlombok:lombok:1.16.6'
 
+    compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }

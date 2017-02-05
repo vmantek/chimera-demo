@@ -10,3 +10,6 @@ tm:
   debug-enabled: true
   debug-participant-enabled: true
 
+management:
+  contextPath: /admin
+
