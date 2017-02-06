@@ -5,11 +5,12 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
 
+management:
+  security:
+    enabled: false
+  contextPath: /admin
+
 tm:
   max-sessions: 100
   debug-enabled: true
   debug-participant-enabled: true
-
-management:
-  contextPath: /admin
-
