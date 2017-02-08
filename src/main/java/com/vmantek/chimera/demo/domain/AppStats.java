@@ -5,7 +5,6 @@ import lombok.Data;
 @Data
 public class AppStats
 {
-    long customerCount;
-    long partnerCount;
+    Long customerCount;
     String responseCode;
 }
