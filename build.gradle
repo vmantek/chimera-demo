@@ -17,9 +17,9 @@ targetCompatibility = 1.8
 
 repositories {
     jcenter()
+    maven { url "https://dl.bintray.com/vmantek/maven" }
     maven { url 'http://jpos.org/maven' }
     maven { url 'http://download.oracle.com/maven' }
-    mavenLocal()
 }
 
 // We need this here because lately jPOS insists on including
