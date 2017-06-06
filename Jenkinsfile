@@ -3,7 +3,7 @@ pipeline {
   stages {
       stage('Build') {
           steps {
-              sh 'gradle build --info'
+              sh './gradlew build --info'
           }
       }
    }
