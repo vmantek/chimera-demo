@@ -1,9 +1,10 @@
 pipeline {
-    stages {
-        stage('Build') {
-            steps {
-                sh 'gradle build --info'
-            }
-        }
-    }
+  agent any
+  stages {
+      stage('Build') {
+          steps {
+              sh 'gradle build --info'
+          }
+      }
+   }
 }
