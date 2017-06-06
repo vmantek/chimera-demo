@@ -1,12 +1,10 @@
 package com.vmantek.chimera.demo.tm;
 
-import com.vmantek.chimera.tm.VTxnSupport;
 import com.vmantek.chimera.demo.domain.Customer;
 import com.vmantek.chimera.demo.repos.CustomerRepository;
+import com.vmantek.chimera.tm.VTxnSupport;
 import org.jpos.transaction.Context;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.persistence.EntityManagerFactory;
 
 @SuppressWarnings({
     "SpringAutowiredFieldsWarningInspection",
@@ -15,9 +13,6 @@ public class SampleParticipant extends VTxnSupport
 {
     @Autowired
     CustomerRepository customerRepository;
-
-    @Autowired
-    EntityManagerFactory entityManagerFactory;
 
     @Override
     protected int doPrepare(long id, Context ctx) throws Exception
@@ -29,11 +24,6 @@ public class SampleParticipant extends VTxnSupport
         getDB(ctx).session().save(new Customer("Gorn", "Kirk's Nemesis"));
 
         return PREPARED | READONLY | NO_JOIN;
-    }
-
-    public void setEntityManagerFactory(EntityManagerFactory entityManagerFactory)
-    {
-        this.entityManagerFactory = entityManagerFactory;
     }
 
     public void setCustomerRepository(CustomerRepository customerRepository)
