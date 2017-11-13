@@ -1,14 +1,17 @@
 plugins {
-    id "org.springframework.boot" version "1.5.3.RELEASE"
+    id "org.springframework.boot" version "1.5.8.RELEASE"
+    id "com.gorylenko.gradle-git-properties" version "1.4.17"
 }
 
 apply plugin: 'org.springframework.boot'
+apply plugin: 'com.gorylenko.gradle-git-properties'
 apply plugin: 'java'
 
 group 'chimera-demo'
 version '1.0.0-SNAPSHOT'
 
-bootRepackage {
+springBoot {
+    buildInfo()
     executable = true
 }
 
@@ -29,7 +32,7 @@ ext['hibernate.version']='5.2.10.Final'
 dependencies {
 
     compile 'org.jpos:jpos:2.1.0-SNAPSHOT'
-    compile 'com.vmantek.chimera:chimera:1.0.3'
+    compile 'com.vmantek.chimera:chimera:1.0.5-SNAPSHOT'
 
     compile 'org.jpos.ee:jposee-dbsupport:2.2.2'
     compile 'org.jpos.ee:jposee-txn:2.2.2'
