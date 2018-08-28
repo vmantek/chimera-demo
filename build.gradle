@@ -38,5 +38,5 @@ dependencies {
     compile 'org.jolokia:jolokia-core'
     compile 'org.hsqldb:hsqldb'
 //    compile 'org.flywaydb:flyway-core:4.0.3'
-    compile 'org.projectlombok:lombok:1.16.6'
+    compile 'org.projectlombok:lombok:1.18.2'
 }
