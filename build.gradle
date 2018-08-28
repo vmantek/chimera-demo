@@ -1,56 +1,42 @@
 plugins {
-    id "org.springframework.boot" version "1.5.8.RELEASE"
-    id "com.gorylenko.gradle-git-properties" version "1.4.17"
+    id "org.springframework.boot" version "2.0.4.RELEASE"
+    id "java"
 }
 
-apply plugin: 'org.springframework.boot'
-apply plugin: 'com.gorylenko.gradle-git-properties'
-apply plugin: 'java'
+apply plugin: 'io.spring.dependency-management'
 
 group 'chimera-demo'
 version '1.0.0-SNAPSHOT'
-
-springBoot {
-    buildInfo()
-    executable = true
-}
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
-    mavenLocal()
     jcenter()
+    mavenLocal()
     maven { url "https://dl.bintray.com/vmantek/maven" }
     maven { url 'http://jpos.org/maven' }
     maven { url 'http://download.oracle.com/maven' }
 }
 
-ext['prometheusVersion']='0.0.21'
-ext['hibernate.version']='5.2.10.Final'
-
 dependencies {
 
-    compile 'org.jpos:jpos:2.1.0-SNAPSHOT'
+    compile 'org.jpos:jpos:2.1.1'
     compile 'com.vmantek.chimera:chimera:1.0.5-SNAPSHOT'
 
     compile 'org.jpos.ee:jposee-dbsupport:2.2.2'
     compile 'org.jpos.ee:jposee-txn:2.2.2'
+    compile 'org.jpos.ee:jposee-syslog:2.2.2'
 
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
     compile 'org.springframework.boot:spring-boot-starter-data-rest'
     compile 'org.springframework.boot:spring-boot-starter-actuator'
 
-    compile "io.prometheus:simpleclient_common:${prometheusVersion}"
-    compile "io.prometheus:simpleclient:${prometheusVersion}"
-
     compile 'com.fasterxml.jackson.datatype:jackson-datatype-hibernate5'
 
     compile 'org.jolokia:jolokia-core'
     compile 'org.hsqldb:hsqldb'
-    compile 'org.flywaydb:flyway-core:4.0.3'
+//    compile 'org.flywaydb:flyway-core:4.0.3'
     compile 'org.projectlombok:lombok:1.16.6'
-
-    testCompile group: 'junit', name: 'junit', version: '4.11'
 }

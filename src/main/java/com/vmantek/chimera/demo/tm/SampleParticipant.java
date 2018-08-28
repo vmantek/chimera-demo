@@ -7,7 +7,10 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.jpos.ee.SysLog;
+import org.jpos.ee.SysLogManager;
 import org.jpos.transaction.Context;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @SuppressWarnings({
     "SpringAutowiredFieldsWarningInspection",
@@ -17,6 +20,7 @@ import org.jpos.transaction.Context;
 public class SampleParticipant extends VTxnSupport
 {
     @Setter @NonNull
+    @Autowired
     private CustomerRepository customerRepository;
 
     @Override

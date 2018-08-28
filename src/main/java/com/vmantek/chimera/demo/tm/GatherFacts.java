@@ -7,6 +7,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.jpos.transaction.Context;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @SuppressWarnings({
     "SpringAutowiredFieldsWarningInspection",
@@ -16,6 +17,7 @@ import org.jpos.transaction.Context;
 public class GatherFacts extends VTxnSupport
 {
     @Setter @NonNull
+    @Autowired
     private CustomerRepository customerRepository;
 
     @Override
