@@ -1,15 +1,22 @@
 plugins {
-    id "org.springframework.boot" version "2.0.4.RELEASE"
+    id "org.springframework.boot" version "2.1.2.RELEASE"
     id "java"
 }
 
 apply plugin: 'io.spring.dependency-management'
 
 group 'chimera-demo'
-version '1.0.0-SNAPSHOT'
+version '1.1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    options.deprecation = false
+    options.warnings = false
+    options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+}
 
 repositories {
     jcenter()
@@ -22,7 +29,7 @@ repositories {
 dependencies {
 
     compile 'org.jpos:jpos:2.1.1'
-    compile 'com.vmantek.chimera:chimera:1.0.5-SNAPSHOT'
+    compile 'com.vmantek.chimera:chimera:1.1.0'
 
     compile 'org.jpos.ee:jposee-dbsupport:2.2.2'
     compile 'org.jpos.ee:jposee-txn:2.2.2'
@@ -37,6 +44,8 @@ dependencies {
 
     compile 'org.jolokia:jolokia-core'
     compile 'org.hsqldb:hsqldb'
-//    compile 'org.flywaydb:flyway-core:4.0.3'
-    compile 'org.projectlombok:lombok:1.18.2'
+    compileOnly 'org.projectlombok:lombok:1.18.2'
+    annotationProcessor 'org.projectlombok:lombok:1.18.2'
+    compileOnly group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.3.0.1'
+    compileOnly group: 'com.sun.xml.bind', name: 'jaxb-core', version: '2.3.0.1'
 }

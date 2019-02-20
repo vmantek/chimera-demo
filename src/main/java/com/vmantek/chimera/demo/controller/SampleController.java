@@ -5,6 +5,7 @@ import com.vmantek.chimera.demo.tm.LocalISOSource;
 import org.jpos.iso.ISOMsg;
 import org.jpos.space.Space;
 import org.jpos.space.SpaceFactory;
+import org.jpos.space.TSpace;
 import org.jpos.transaction.Context;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Transactional
 public class SampleController
 {
+    @SuppressWarnings("unchecked")
     @RequestMapping(value = "/tm", method = RequestMethod.GET)
     public ResponseEntity<?> tm()
     {
